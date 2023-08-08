@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building with master pipeline..'
+                echo 'Building with staging pipeline..'
             }
         }
         stage('Test') {
