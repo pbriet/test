@@ -1,10 +1,14 @@
 pipeline {
     agent any
 
+    environment {
+        FAVOURITE_FRUIT = 'tomato'
+    }
+
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
+                echo 'Building with master pipeline..'
             }
         }
         stage('Test') {
