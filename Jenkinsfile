@@ -20,6 +20,8 @@ pipeline {
                 script {
                     dockerImage.inside {
                         sh 'whoami'
+                        sh 'env'
+                        sh 'pwd'
                         sh 'npm test'
                     }
                 }
