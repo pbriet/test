@@ -19,3 +19,16 @@ describe("GET /", function () {
             });
     });
 });
+
+
+describe("GET /toto", function () {
+    it("should return 200 OK", function (done) {
+        request
+            .get("/toto")
+            .expect(200)
+            .end(function (err, res) {
+                if (err) return done(err);
+                done();
+            });
+    });
+});
