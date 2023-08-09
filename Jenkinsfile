@@ -19,10 +19,8 @@ pipeline {
             steps {
                 script {
                     dockerImage.inside {
-                        sh 'whoami'
-                        sh 'env'
-                        sh 'pwd'
                         sh 'cd /app && npm test'
+                        sh 'ls -lsa'
                     }
                 }
             }
