@@ -3,21 +3,35 @@ pipeline {
 
     environment {
         FAVOURITE_FRUIT = 'tomato'
+        dockerImage = ''
     }
 
     stages {
         stage('Build') {
             steps {
-                echo 'Building with staging pipeline..'
+                script {
+                    dockerImage = docker.build("my-image:tag")
+                    // dockerImage.push()
+                }
             }
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
+                script {
+                    dockerImage.inside {
+                        sh 'npm test'
+                    }
+                }
             }
         }
         stage('Deploy') {
             steps {
+
+	      		// Create an Approval Button with a timeout of 15 minutes.
+                timeout(time: 15, unit: "MINUTES") {
+                    input message: 'Do you want to approve the deployment?', ok: 'Yes'
+                }
+
                 echo 'Deploying....'
             }
         }
