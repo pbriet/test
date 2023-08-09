@@ -19,6 +19,7 @@ pipeline {
             steps {
                 script {
                     dockerImage.inside {
+                        sh 'whoami'
                         sh 'npm test'
                     }
                 }
