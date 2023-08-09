@@ -22,7 +22,7 @@ pipeline {
                         sh 'whoami'
                         sh 'env'
                         sh 'pwd'
-                        sh 'npm test'
+                        sh 'cd /app && npm test'
                     }
                 }
             }
