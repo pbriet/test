@@ -19,6 +19,8 @@ pipeline {
             steps {
                 script {
                     dockerImage.inside {
+                        sh 'pwd'
+                        sh 'env'
                         sh 'cd /app && npm test'
                         sh 'ls -lsa'
                     }
@@ -37,4 +39,11 @@ pipeline {
             }
         }
     }
+
+    post {
+        always {
+            junit 'junit.xml'
+        }
+    }
+
 }
