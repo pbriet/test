@@ -23,6 +23,7 @@ pipeline {
                         sh 'env'
                         sh 'cd /app && npm test'
                         sh 'ls -lsa'
+                        sh 'ls -lsa $WORKSPACE'
                     }
                 }
             }
