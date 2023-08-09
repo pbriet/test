@@ -19,10 +19,8 @@ pipeline {
             steps {
                 script {
                     dockerImage.inside {
-                        sh 'pwd'
-                        sh 'env'
                         sh 'cd /app && npm test'
-                        sh 'ls -lsa'
+                        sh 'cp /app/junit.xml $WORKSPACE/'
                         sh 'ls -lsa $WORKSPACE'
                     }
                 }
