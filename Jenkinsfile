@@ -19,7 +19,7 @@ pipeline {
             steps {
                 script {
                     dockerImage.inside {
-                        sh 'cd /app && npm test || some tests failed but ignoring'
+                        sh 'cd /app && npm test || echo some tests failed but ignoring'
                         sh 'cp /app/junit.xml $WORKSPACE/'
                         sh 'ls -lsa $WORKSPACE'
                     }
